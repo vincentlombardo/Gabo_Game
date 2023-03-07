@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 39cee145e7745574db4a27eb92f17860
+  m_SerializeEntries:
+  - m_GUID: 05a2d967550769140a1116d08bc948b1
+    m_Address: Assets/TestCards.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: fcb5b083dad9e0140a5ee913ec6ba86a
+    m_Address: Assets/TestCard_Face.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0a3d0c4a2affd4e429feb6adec5d81a4
+    m_Address: Assets/card_sample.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: bd0435dd56198ea49a2bad678deb0102
+    m_Address: Assets/Card_Images/stone_golem.jpeg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4441be693b4baf9499b45e863f02d620
+    m_Address: Assets/Card_Images/blank_image.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d95bea533a4fe5844a3767df9336be69
+    m_Address: Assets/Card_Images/evil_shroom.jpeg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 1737a1a2ea78b744aa9b4c6e8cbb6676, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 6382725b6972ea747a036e532a4d5669, type: 2}
+    - {fileID: 11400000, guid: 0297a22164bd6c64ab7458ae77261249, type: 2}
