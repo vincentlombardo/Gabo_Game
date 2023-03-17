@@ -28,28 +28,35 @@ public class interactioncontext{
         int opphp = opponent.health;
         Modifiers oppmodifiers = opponent.mods_list;
         state newstate = new state(cardhp,opphp,attackinquestion, card.pos, opponent.pos, cardmodifiers,oppmodifiers);
-        if (opphp > 0){	
-			if(attackinquestion.range.inrange(newstate.slf_pos,newstate.opp_pos)){
-				newstate.incomingdmg += attackinquestion.dmg;
-				Debug.Log(string.Format(card.namevar + " attacks " + opponent.namevar + " with " + "{0} : {1} dmg",newstate.attk.namevar,newstate.attk.dmg));	
-			}else{
-				Debug.Log(string.Format(card.namevar + " cannot attack " + opponent.namevar + "\t" + newstate.opp_pos.toString() + " is not in range from" + newstate.slf_pos.toString()));
-                newstate.att_sucess = false;
-			}
-			
-		}else {
-			Debug.Log("The opponent you are trying to attack is dead");
-		}
+        if (card.team != opponent.team){
+            if (opphp > 0){	
+                if(attackinquestion.range.inrange(newstate.slf_pos,newstate.opp_pos)){
+                    newstate.incomingdmg += attackinquestion.dmg;
+                    Debug.Log(string.Format(card.namevar + " attacks " + opponent.namevar + " with " + "{0} : {1} dmg",newstate.attk.namevar,newstate.attk.dmg));	
+                }else{
+                    Debug.Log(string.Format(card.namevar + " cannot attack " + opponent.namevar + "\t" + newstate.opp_pos.toString() + " is not in range from" + newstate.slf_pos.toString()));
+                    newstate.att_sucess = false;
+                }
+
+                foreach (base_mod q in cardmodifiers.modlist){
+                    Debug.Log(string.Format("{0}",q.GetType()));
+                    q.run(newstate,true);
+                }
+                foreach (base_mod q in oppmodifiers.modlist){
+                    Debug.Log(string.Format("{0}",q.GetType()));
+                    q.run(newstate,false);
+                }
+                        
+            }else {
+                Debug.Log("The opponent you are trying to attack is dead");
+            }
+        }else{
+            Debug.Log("The opponent you are trying to attack is on your team");
+        }
+        
 
 		
-        foreach (base_mod q in cardmodifiers.modlist){
-            Debug.Log(string.Format("{0}",q.GetType()));
-            q.run(newstate,true);
-        }
-        foreach (base_mod q in oppmodifiers.modlist){
-            Debug.Log(string.Format("{0}",q.GetType()));
-            q.run(newstate,false);
-        }
+       
         applystate(newstate);
        ///??
     }

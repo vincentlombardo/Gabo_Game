@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
 	public CreatePlaceholder currentplaceholder {get; set;}
 	public Card currentcard {get; set;}
 	private string test_a_range1 = "u2+ d1 l2 r3+ ur2 dl3 dl1";
-	private	string test_a_range2 = "u3 dl2";
+	private	string test_a_range2 = "u1 d1 l1";
 	private	string test_a_range3 = "dl2";
 	private	string test_m_range1 = "u1 d1 l1 r1";
 	private	string test_m_range2 = "u2+ d2+ l2+ r2+ dl2";
@@ -28,9 +28,12 @@ public class GameManager : MonoBehaviour
 	Card opponent;
 	Card agressor;
 	int attacknum;
+
+	Reader reader;
 	
 	void Awake(){
 		grid = FindObjectOfType<GridManager>();
+		reader = FindObjectOfType<Reader>();
 	}
 	private void Start()
 	{
@@ -109,44 +112,74 @@ public class GameManager : MonoBehaviour
 
     }
 
+	public Card loadcard(string name){
+		GameObject go = new GameObject("Test " + name);
+		Createcard goCreator  = go.AddComponent<Createcard>();
+		Card card = go.AddComponent<Card>();
+		string imagepath = reader.interpret(name,card);
+		goCreator.init(imagepath);
+		goCreator.cardref(card);
+		GameObject placeholdergo = new GameObject(name + " Placeholder");
+		CreatePlaceholder placeholder  = placeholdergo.AddComponent<CreatePlaceholder>();
+		placeholder.init(card);
+		return card;
+	}
+
 	void OnGUI()
     {
 		
         if (GUI.Button(new Rect(10, 50, 100, 30), "Create Card"))
         {  	
 			UnityEngine.Debug.Log("Pressed CreateCard");
-			GameObject card_go = new GameObject("Test_Golem");
-			
-			Createcard cardcreator  = card_go.AddComponent<Createcard>();
-			cardcreator.init("Assets/Card_Images/stone_golem.jpeg");
-			Card cardobj = card_go.AddComponent<Card>();
-			cardobj.Init_2("Stone Golem",new Coordinate(0,0),9,new Modifiers(test_mods2),new boardrange(test_m_range2),new Attack("Smack",new boardrange(test_a_range1),2));
-			cardcreator.cardref(cardobj);
-			UnityEngine.Debug.Log("Working to CreatePlaceholder");
-            
-			GameObject placeholder_go = new GameObject("Test_Placeholder");
-			CreatePlaceholder placeholder  = placeholder_go.AddComponent<CreatePlaceholder>();
-			placeholder.init(cardobj);
 
-			GameObject card_go2 = new GameObject("Test_shroom");
-			
-			Createcard cardcreator2  = card_go2.AddComponent<Createcard>();
-			cardcreator2.init("Assets/Card_Images/evil_shroom.jpeg");
-			Card cardobj2 = card_go2.AddComponent<Card>();
-			cardobj2.Init_2("shroom",new Coordinate(2,2),2,new Modifiers(test_mods2),new boardrange(test_m_range1),new Attack("fireball",new boardrange(test_a_range2),2));
-			cardcreator2.cardref(cardobj2);
-			
-			GameObject placeholder_go2 = new GameObject("Test_Placeholder");
-			CreatePlaceholder placeholder2  = placeholder_go2.AddComponent<CreatePlaceholder>();
-			placeholder2.init(cardobj2);
-			card_go.transform.position = new Vector3(3f, 0f,0.0f);
+			Card golem = loadcard("stone_golem");
+			golem.pos = new Coordinate(4,4);
+			golem.transform.position = new Vector3(10f, 4f,0.0f);
+			golem.team = 5;
 
+
+			//GameObject card_go = new GameObject("Test_Golem");
+			//Createcard cardcreator  = card_go.AddComponent<Createcard>();
+			//cardcreator.init("Assets/Card_Images/stone_golem.jpeg");
+			//Card cardobj = card_go.AddComponent<Card>();
+			//cardobj.Init_2("Stone Golem",9,new Modifiers(test_mods2),new boardrange(test_m_range2),new Attack("Smack",new boardrange(test_a_range1),2));
+			//string imagepath = reader.interpret("stone_golem",cardobj);
+			Card golem2 = loadcard("stone_golem");
+			golem2.pos = new Coordinate(0,0);
+			golem2.team = 1;
+			golem.transform.position = new Vector3(3f, 0f,0.0f);
+			//cardcreator.init(imagepath);
+			//cardcreator.cardref(cardobj);
+			//GameObject placeholder_go = new GameObject("Test_Placeholder");
+			//CreatePlaceholder placeholder  = placeholder_go.AddComponent<CreatePlaceholder>();
+			//placeholder.init(cardobj);
+
+			Card shroom = loadcard("evil_shroom");
+			shroom.pos = new Coordinate(2,0);
+			shroom.team = 2;
+			shroom.transform.position = new Vector3(3f, 4f,0.0f);
 			
-			UnityEngine.Debug.Log("GuiDone");
+			//cardobj2.Init_2("shroom",2,new Modifiers(test_mods2),new boardrange(test_m_range1),new Attack("fireball",new boardrange(test_a_range2),2));
+			
+			Card drone = loadcard("drone_duo");
+			drone.pos = new Coordinate(4,0);
+			drone.team = 3;
+			drone.transform.position = new Vector3(6f, 0f,0.0f);
+
+			Card helios = loadcard("helios");
+			helios.pos = new Coordinate(0,4);
+			helios.team = 4;
+			helios.transform.position = new Vector3(6f, 4f,0.0f);
+
+
 
 
         }
-
+		if (GUI.Button(new Rect(10, 100, 100, 30), "Test"))
+		{  	
+			reader.interpret("evil_shroom", new Card());
+			reader.interpret("stone_golem",new Card());
+		}
 		
 	
 	}

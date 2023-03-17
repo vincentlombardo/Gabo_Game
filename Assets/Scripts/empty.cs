@@ -6,7 +6,7 @@ public class empty: Card
 {
 	//public Card( string cardname, int health, string Q, boardrange moverange, Attack a1, Attack s1)
 	public empty():base(){
-        base.Init(null,null,0,null,null,null,null);
+        base.Init(null,0,null,null,null,null);
 	}
 	
     void Start()

@@ -29,16 +29,16 @@ MonoBehaviour:
     m_Address: Assets/card_sample.png
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: bd0435dd56198ea49a2bad678deb0102
-    m_Address: Assets/Card_Images/stone_golem.jpeg
+  - m_GUID: 0d070b4c4f4dc574c84002e2859eb265
+    m_Address: Assets/Card_Images
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 4441be693b4baf9499b45e863f02d620
     m_Address: Assets/Card_Images/blank_image.png
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: d95bea533a4fe5844a3767df9336be69
-    m_Address: Assets/Card_Images/evil_shroom.jpeg
+  - m_GUID: 386ecf52a5659c148bd2632b8ce12a74
+    m_Address: Assets/Card_Data
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0

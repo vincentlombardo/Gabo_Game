@@ -15,7 +15,7 @@ public class Card : MonoBehaviour
 	GameManager gm;
 	public string firsttext = "ahhh";
 	private Animator camAnim;
-
+	public int team { get; set;}
 	public string namevar { get; set;}
 	public int health { get; set;}
 
@@ -26,8 +26,8 @@ public class Card : MonoBehaviour
 	public CreatePlaceholder placeholder {get;set;}
 
 	
-	public void Init( string cardname, Coordinate pos, int health, Modifiers Q,boardrange moverange, Attack a1, Attack s1){
-        this.pos = pos;
+	public void Init( string cardname, int health, Modifiers Q,boardrange moverange, Attack a1, Attack s1){
+
 		attackinfo = new List<Attack>();
 		this.namevar = cardname;
 		this.health = health;
@@ -36,11 +36,12 @@ public class Card : MonoBehaviour
 		this.mods_list = Q; 
 		this.moverange = moverange;
 		dead = false;
+		
         
 	}
 	
-	public void Init_2(string cardname, Coordinate pos, int health, Modifiers Q,boardrange moverange, Attack a1){
-        this.pos = pos;
+	public void Init_2(string cardname, int health, Modifiers Q,boardrange moverange, Attack a1){
+        
 		attackinfo = new List<Attack>();
 		this.namevar = cardname;
 		this.health = health;
@@ -48,6 +49,7 @@ public class Card : MonoBehaviour
 		this.mods_list = Q; 
 		this.moverange = moverange;
 		dead = false;
+		
         
 	}
 	

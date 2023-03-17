@@ -1,0 +1,5 @@
+n:Drone Duo
+hp:5
+q:flying
+m:u3+ d3+
+a:Dive Bomb,ul2+ dl2+ dr2+ ur2+,2
