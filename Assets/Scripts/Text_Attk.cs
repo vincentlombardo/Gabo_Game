@@ -13,7 +13,7 @@ public class Text_Attk : MonoBehaviour
     public bool showingattk = false;
 
     GameManager gm;
-    void Start() 
+    void Awake() 
     {
         gm = FindObjectOfType<GameManager>();
         parent = this.transform.parent.gameObject;
@@ -24,16 +24,20 @@ public class Text_Attk : MonoBehaviour
     }
     
     private void OnMouseDown(){
-        Debug.Log("Attack was clicked");
+        if (self_card.activecollider){
+            Debug.Log("Attack was clicked");
         gm.attackisclicked(self_card,0);
+        }
+        
     }
     private void OnMouseOver(){
-        if(!showingattk){
-            Debug.Log("Showing attk");
-            gm.showattackrange(self_card,0);
-            showingattk = true;
+        if (self_card.activecollider){
+            if(!showingattk){
+                Debug.Log("Showing attk");
+                gm.showattackrange(self_card,0);
+                showingattk = true;
+            }
         }
-
     }
     private void OnMouseExit(){
         showingattk = false;

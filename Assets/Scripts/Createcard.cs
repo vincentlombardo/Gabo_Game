@@ -13,6 +13,8 @@ public class Createcard : MonoBehaviour
     GameObject hp;
     GameObject attk;
     GameObject q;
+    teaminfo colors;
+    Card card;
     private Sprite mySprite;
     private SpriteRenderer imagerenderer;
     private SpriteRenderer baserenderer;
@@ -58,8 +60,8 @@ public class Createcard : MonoBehaviour
         hptext = hp.AddComponent<TextMeshPro>() as TextMeshPro;
         hprect = hptext.GetComponent<RectTransform>();
         hprect.transform.position = new Vector3(0.8f,0.3f,0.0f);
-        hprect.sizeDelta = new Vector2(.85f,.3f);
-        hptext.fontSize = 3.0f;
+        hprect.sizeDelta = new Vector2(1.5f,1f);
+        hptext.fontSize = 5.0f;
         hptext.color = Color.white;
         hpscrpt = hp.AddComponent<Text_Hp>();
         
@@ -68,7 +70,7 @@ public class Createcard : MonoBehaviour
         attkrect = attktext.GetComponent<RectTransform>();
         attkrect.transform.position = new Vector3(-0.01f,-0.697f,0f);
         attkrect.sizeDelta = new Vector2(2.4f,.75f);
-        attktext.fontSize = 3.0f;
+        attktext.fontSize = 4.0f;
         attkbox = attk.AddComponent<BoxCollider>() as BoxCollider;
         attkbox.size = new Vector2(2.4f,.75f);
         attkscrpt = attk.AddComponent<Text_Attk>();
@@ -76,7 +78,7 @@ public class Createcard : MonoBehaviour
 
         modtext = q.AddComponent<TextMeshPro>() as TextMeshPro;
         modrect = modtext.GetComponent<RectTransform>();
-        modrect.transform.position = new Vector3(0f,-1.479f,0.0f);
+        modrect.transform.position = new Vector3(0f,-1.7f,0.0f);
         modrect.sizeDelta = new Vector2(2.4f,.75f);
         modtext.fontSize = 3.0f;
         modscript = q.AddComponent<Text_Mod>();
@@ -94,6 +96,7 @@ public class Createcard : MonoBehaviour
    
     public void cardref(Card card){
         card.imagename = imagestr;
+        this.card = card;
     }
     public void settext(){
         hpscrpt.settext();
@@ -109,6 +112,7 @@ public class Createcard : MonoBehaviour
             cardslist = handleToCheck.Result;
             baserenderer.sprite = cardslist[0];
             
+            
         }
     }
     void createimagewhenready(AsyncOperationHandle<Sprite[]> handleToCheck)
@@ -116,6 +120,7 @@ public class Createcard : MonoBehaviour
         if(handleToCheck.Status == AsyncOperationStatus.Succeeded)
         {
             imagerenderer.sprite = handleToCheck.Result[0];
+            imagerenderer.color = colors.colorlist[card.team-1];
             
         }
     }
@@ -123,9 +128,11 @@ public class Createcard : MonoBehaviour
     void Start()
     {
         Debug.Log("createcard_Started");
+        colors = FindObjectOfType<teaminfo>();
         this.createbase();
         this.createimage(imagestr);
         this.settext();
+        
     }
 
     private void createimage(string imagestr){

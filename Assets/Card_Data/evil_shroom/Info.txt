@@ -1,5 +1,6 @@
 n:Evil Shroom
 hp:4
-q:flying ranged
-m:u1 d1 l1 r1 u2+r2+ l1u4+
-a:fireball,u2+ d1 l2 r3+ ur2 dl3 dl1,2
+q:ranged
+m:u1l1 u1r1 d1l1 d1r1
+a:fireball,u2l2 u2r2 d2r2 d2l2,2
+g:4

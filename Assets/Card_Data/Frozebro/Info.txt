@@ -1,0 +1,6 @@
+n:Frozebro
+hp:3
+q:ranged
+m:u2l2+ u2r2+ d2l2+ d2r2+
+a:Icicle,u3l3+ d3l3+ u3r3+ d3r3+,3
+g:1

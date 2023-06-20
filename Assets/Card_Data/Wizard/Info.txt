@@ -1,0 +1,6 @@
+n:Wizard
+hp:3
+q:ranged
+m:u3+ d3+ r2+ l2+
+a:Fireball,u2l1 u2r1 u3l1 u3r1 l3u1 l3d1 l2u1 l2d1 d2l1 d2r1 d3l1 d3r1 r3u1 r3d1 r2u1 r2d1,4
+g:3

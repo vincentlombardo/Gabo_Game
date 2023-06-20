@@ -23,6 +23,8 @@ public class Board{
 		Debug.Log(string.Format(card.namevar + " replaces {0} at " + pos.toString() ,board[pos.xpos][pos.ypos].GetType()));
 		board[pos.xpos][pos.ypos] = card;
 		card.pos = pos;
+		card.placeholder.parent.SetActive(true);
+		card.activecollider = true;
 		return true;
 
 	}

@@ -12,6 +12,7 @@ public class Reader : MonoBehaviour
     public string movestr{get;set;}
     public string attkstr {get;set;}
     public string qstr{get;set;}
+    public int gold {get;set;}
     
     public string interpret(string namestr, Card card){
         this.namestr = namestr;
@@ -19,8 +20,8 @@ public class Reader : MonoBehaviour
     
         // Create an instance of StreamReader to read from a file.
         // The using statement also closes the StreamReader.
-        string path = "Assets/Card_Data/" + namestr.ToLower() + "/Info.txt";
-        string imagepath = "Assets/Card_Data/" + namestr.ToLower() + "/Image.jpeg";
+        string path = "Assets/Card_Data/" + namestr + "/Info.txt";
+        string imagepath = "Assets/Card_Data/" + namestr + "/Image.jpeg";
     
         Debug.Log(path);
         using (StreamReader sr = new StreamReader(path))
@@ -42,6 +43,8 @@ public class Reader : MonoBehaviour
                     movestr = id_info[1];
                 }else if(id_info[0] == "a"){
                     attkstr = id_info[1];
+                }else if(id_info[0] == "g"){
+                    gold = Int32.Parse(id_info[1]);
                 }else{
                     Debug.Log("Uh oh");
                 }
@@ -50,7 +53,7 @@ public class Reader : MonoBehaviour
         }
         string[] alist = attkstr.Split(",");
         int admg = Int32.Parse(alist[2]);
-        card.Init_2(gamename,hp,new Modifiers(qstr),new boardrange(movestr),new Attack(alist[0],new boardrange(alist[1]),admg));
+        card.Init_2(gamename,hp,new Modifiers(qstr),new boardrange(movestr),new Attack(alist[0],new boardrange(alist[1]),admg),gold);
         Debug.Log(imagepath);
         return imagepath;
         

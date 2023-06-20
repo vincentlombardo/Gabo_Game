@@ -1,0 +1,5 @@
+n:Heal Bot
+hp:2
+q:healer
+m:u3+ d3+
+a:Mass Heal,u1l2+ d1l2+ d1r2+ u1r2+,1

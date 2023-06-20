@@ -1,0 +1,6 @@
+n:Gnome Archer
+hp:2
+q:ranged
+m:u2 l2 r2 d2 u1l1 d1l1 u1r1 u1l1
+a:Crossbow,u4r4+ u4l4+ r4u4+ l4u4+ d4r4+ d4l4+ r4d4+ l4d4+,2
+g:1

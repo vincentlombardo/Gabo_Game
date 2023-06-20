@@ -16,7 +16,7 @@ public class Text_Hp : MonoBehaviour
         self_card = card;
         placeholder = true;
     }
-    void Start()
+    void Awake()
     {
         parent = this.transform.parent.gameObject;
         //Debug.Log(parent.name + "<<<< NAME");

@@ -41,6 +41,14 @@ MonoBehaviour:
     m_Address: Assets/Card_Data
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: d6d85040cf6811741a93fd7fecf7e549
+    m_Address: Assets/Dice/DiceSides
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f225ba3f6f6d3b348b1f75a6a558c0be
+    m_Address: Assets/Dice
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 1737a1a2ea78b744aa9b4c6e8cbb6676, type: 2}
   m_SchemaSet:

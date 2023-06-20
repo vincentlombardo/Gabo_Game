@@ -1,0 +1,6 @@
+n:Spare Parts
+hp:1
+q:base
+m:u2l1 u2r1 d2l1 d2r1
+a:Combined Fury,u3 u2l1 u2r1 d3 d2l1 d2r1,1
+g:3

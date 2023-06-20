@@ -72,14 +72,33 @@ public class boardrange
                 
                 
                 if (posindict != -1 ){
+
                     key = _char.ToString();
                     var temp = new List<(int,int)>();
+                    var sucess1 = false; 
+                    var sucess2 = false;
+                    if (individualchars.Length > index+2){
+                        sucess2 = int.TryParse(individualchars[index+1].ToString() + individualchars[index+2],out num);  
+                    }
+                     
+                    if (!sucess2){
+                        sucess1 = int.TryParse(individualchars[index+1].ToString(),out num); 
+                    }else{
+                        Debug.Log(string.Format("{0}",num));
+                    }
+                        
                     
-                    var sucess = int.TryParse(individualchars[index+1].ToString(),out num);
-                    if (sucess){
-                        if (individualchars.Length > index+2 && individualchars[index+2].ToString() == "+"){
-                            between = true;
+                    if (sucess1 || sucess2){
+                        if (sucess1){
+                            if (individualchars.Length > index+2 && individualchars[index+2].ToString() == "+"){
+                                between = true;
+                            }
+                        }else if (sucess2){
+                            if (individualchars.Length > index+3 && individualchars[index+3].ToString() == "+"){
+                                between = true;
+                            }
                         }
+                        
                         Debug.Log("There is a sucessful char");
                         if (between){
                             for(int n = 1; n <= num; n++){
@@ -92,7 +111,9 @@ public class boardrange
                         }
                     }
                     temprangelist.Add(temp);
-                }
+            
+            }   
+                
             }
             
             foreach (var coord1 in temprangelist[0]){

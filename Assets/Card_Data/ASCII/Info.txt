@@ -1,0 +1,6 @@
+n:ASCII
+hp:3
+q:base
+m:u3+ d3+
+a:A,u2 u1l1 u1r1 l1 l2 r1 r2 d1l3 d1r3,1
+g:1

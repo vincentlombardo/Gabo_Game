@@ -1,0 +1,6 @@
+n:JΛᄃK
+hp:2
+q:ranged
+m:u1r1 u2r2 u3r3 d1l1 d2l2 d3l3
+a:Taze,u3+l3+ d3+l3+ d3+r3+ u3+r3+,1
+g:4

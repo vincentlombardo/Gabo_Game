@@ -58,8 +58,36 @@ public class GridManager : MonoBehaviour
         }
         
     }
+    public void setimportsquares(boardrange range,int team){
+        Coordinate pos = new Coordinate(0,0);
+        foreach (var posssquare in range.rangelist){
+			int xsquare = posssquare.Item1 + pos.xpos;
+			int ysquare =  posssquare.Item2 +pos.ypos;
+            if (this.ingrid(new Coordinate(xsquare,ysquare))){
+                Debug.Log(string.Format("{0} {1}", xsquare,ysquare));
+                Debug.Log(string.Format("{0} {1}", board.Count,board[0].Count));
+
+                board[xsquare][ysquare].setimportsquare(team);
+            }
+			
+		}
+    }
+    public void sethealthsquares(boardrange range,int team){
+        Coordinate pos = new Coordinate(0,0);
+        foreach (var posssquare in range.rangelist){
+			int xsquare = posssquare.Item1 + pos.xpos;
+			int ysquare =  posssquare.Item2 +pos.ypos;
+            if (this.ingrid(new Coordinate(xsquare,ysquare))){
+                Debug.Log(string.Format("{0} {1}", xsquare,ysquare));
+                Debug.Log(string.Format("{0} {1}", board.Count,board[0].Count));
+
+                board[xsquare][ysquare].sethealthsquare(team);
+            }
+			
+		}
+    }
     public void init(int wid,int ht, Board board){
-        generategrid(wid,wid);
+        generategrid(wid,ht);
         card_board = board;
     }
     public void generategrid(int wid, int ht){

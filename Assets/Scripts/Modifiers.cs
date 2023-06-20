@@ -13,7 +13,8 @@ public class Modifiers
     Dictionary<string, base_mod> mod_dict = new Dictionary<string, base_mod>(){
         {"base" , new base_mod()},
         {"flying", new isFlying()},
-        {"ranged", new isRanged()}
+        {"ranged", new isRanged()},
+        {"healer", new IsHealer()}
     };
 	public Modifiers(string mod_string){
         this.mod_string = mod_string;

@@ -2,4 +2,5 @@ n:Hilios
 hp:3
 q:ranged
 m:u2+ d2+ l2+ r2+
-a:flamethrower,ul2+ ur2+ u2+,3
+a:flamethrower,u2l2+ u2r2+ u2+ u1l1 u1r1 d2l2+ d2r2+ d2+ d1l1 d1r1,3
+g:3

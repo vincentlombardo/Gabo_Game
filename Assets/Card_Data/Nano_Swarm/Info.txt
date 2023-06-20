@@ -1,0 +1,6 @@
+n:Nano Swarm
+hp:1
+q:flying
+m:u2+r2+ u2+l2+ d2+l2+ d2+r2+
+a:Nip,u1 d1,7
+g:3

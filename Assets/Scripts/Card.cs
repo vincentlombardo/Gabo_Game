@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.Animations;
+using System.Linq;
 public class Card : MonoBehaviour
 {
 	public GameObject parent {get; set;}
@@ -12,6 +13,7 @@ public class Card : MonoBehaviour
 	public Coordinate pos {get; set;}
 	public Text_Attk attktext;
 	public Text_Hp hptext;
+	public bool activecollider {get; set;}
 	GameManager gm;
 	public string firsttext = "ahhh";
 	private Animator camAnim;
@@ -24,9 +26,10 @@ public class Card : MonoBehaviour
 	public boardrange moverange {get; set;}
 	public Modifiers mods_list { get; set;}
 	public CreatePlaceholder placeholder {get;set;}
+	public int gold {get;set;}
 
 	
-	public void Init( string cardname, int health, Modifiers Q,boardrange moverange, Attack a1, Attack s1){
+	public void Init( string cardname, int health, Modifiers Q,boardrange moverange, Attack a1, Attack s1, int gold){
 
 		attackinfo = new List<Attack>();
 		this.namevar = cardname;
@@ -36,20 +39,27 @@ public class Card : MonoBehaviour
 		this.mods_list = Q; 
 		this.moverange = moverange;
 		dead = false;
-		
-        
+		activecollider = true;
+        this.gold = gold;
 	}
 	
-	public void Init_2(string cardname, int health, Modifiers Q,boardrange moverange, Attack a1){
+	public void Init_2(string cardname, int health, Modifiers Q,boardrange moverange, Attack a1,int gold){
         
 		attackinfo = new List<Attack>();
 		this.namevar = cardname;
 		this.health = health;
 		this.attackinfo.Add(a1);
+		
+		if(Q.modlist.OfType<isRanged>().Any()){
+			a1.targetsameteam = true;
+		}
+		
 		this.mods_list = Q; 
 		this.moverange = moverange;
 		dead = false;
-		
+		activecollider = true;
+		this.gold = gold;
+
         
 	}
 	
@@ -89,7 +99,10 @@ public class Card : MonoBehaviour
 	}
 	void Start()
 	{	
-		gm.board1.place(this,pos);
+		if(pos != null){
+			gm.board1.place(this,pos);
+
+		}
 		parent.SetActive(false);
 	}
 	public void addboxes(){

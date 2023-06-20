@@ -124,10 +124,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a4a059537b44db47a8e3f755874370f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseColor: {r: 0.2666667, g: 0.7054333, b: 0.8, a: 1}
-  offsetColor: {r: 0.27612138, g: 0.48030514, b: 0.8018868, a: 1}
-  highlightcolor: {r: 0.027634395, g: 0.18330735, b: 0.254717, a: 0.7019608}
+  baseColor: {r: 0.38679248, g: 0.38679248, b: 0.38679248, a: 1}
+  hpColor: {r: 0.8773585, g: 0.086908154, b: 0.086908154, a: 1}
+  offsetColor: {r: 0.8301887, g: 0.8301887, b: 0.8301887, a: 1}
+  highlightcolor: {r: 0.8867924, g: 0.8821325, b: 0.33882165, a: 1}
+  importcolor: {r: 0.27500483, g: 0.4528302, b: 0.16874333, a: 1}
   renderer: {fileID: 0}
   gm: {fileID: 0}
   parent: {fileID: 0}
   savecolor: {r: 0, g: 0, b: 0, a: 0}
+  colors: {fileID: 0}

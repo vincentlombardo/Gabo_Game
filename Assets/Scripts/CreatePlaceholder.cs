@@ -18,6 +18,7 @@ public class CreatePlaceholder : MonoBehaviour
     private RectTransform hprect;
     public Text_Hp hpscrpt;
     BoxCollider imagebox;
+    teaminfo colors;
 
     
     
@@ -43,12 +44,15 @@ public class CreatePlaceholder : MonoBehaviour
         hptext.color = Color.white;
         hpscrpt = hp.AddComponent<Text_Hp>();
         hpscrpt.placeholderinit(card);
-        transform.position = new Vector3(-6.4f, -.12f,0.0f);
+        transform.position = new Vector3(-20f, 0f,0.0f);
+        parent.SetActive(false);
         
     }
     void Start()
     {
         gm = FindObjectOfType<GameManager>();
+        colors = FindObjectOfType<teaminfo>();
+
         this.createimage(card.imagename);
         
         
@@ -60,6 +64,7 @@ public class CreatePlaceholder : MonoBehaviour
         if(handleToCheck.Status == AsyncOperationStatus.Succeeded)
         {
             imagerenderer.sprite = handleToCheck.Result[0];
+            imagerenderer.color = colors.colorlist[card.team-1];
             
         }
     }

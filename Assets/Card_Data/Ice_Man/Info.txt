@@ -1,0 +1,6 @@
+n:Ice Man
+hp:5
+q:base
+m:r3+ l3+ u2 d2
+a:Spear,u3+ d3+,4
+g:3

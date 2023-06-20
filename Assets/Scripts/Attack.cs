@@ -7,6 +7,7 @@ public class Attack
     public string namevar { get; set;}
 	public boardrange range { get; set;}
 	public int dmg { get; set;}
+    public bool targetsameteam { get; set;}
 
     public Attack(string namevar, boardrange range, int dmg){
 		this.namevar = namevar;
